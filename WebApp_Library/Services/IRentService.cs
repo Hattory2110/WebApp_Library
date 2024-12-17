@@ -1,4 +1,4 @@
-﻿using WebApp_Library.Classes;
+﻿using WebApp_Library.Shared.Classes;
 
 namespace WebApp_Library.Services;
 

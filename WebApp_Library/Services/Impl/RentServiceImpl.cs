@@ -1,4 +1,4 @@
-﻿using WebApp_Library.Classes;
+﻿using WebApp_Library.Shared.Classes;
 using WebApp_Library.Contexts;
 using Microsoft.EntityFrameworkCore;
 

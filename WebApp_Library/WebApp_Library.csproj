@@ -18,4 +18,15 @@
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\app.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WebApp_Library.Shared\WebApp_Library.Shared.csproj" />
+    </ItemGroup>
+
 </Project>

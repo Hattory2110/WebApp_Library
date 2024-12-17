@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApp_Library.Classes;
+using WebApp_Library.Shared.Classes;
 using WebApp_Library.Services;
 
 namespace WebApp_Library.Controllers;
