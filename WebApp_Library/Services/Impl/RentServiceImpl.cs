@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApp_Library.Services.Impl;
 
-public class RentService : IRentService
+public class RentServiceImpl : IRentService
 {
     private LibraryContext _context;
-    private ILogger<RentService> _logger;
+    private ILogger<RentServiceImpl> _logger;
 
-    public RentService(ILogger<RentService> logger, LibraryContext context)
+    public RentServiceImpl(ILogger<RentServiceImpl> logger, LibraryContext context)
     {
         _logger = logger;
         _context = context;
@@ -17,41 +17,41 @@ public class RentService : IRentService
     
     public async Task AddAsync(Rent rent)
     {
-        _logger.LogInformation("Olvaso to add: {@Kölcsönzes}", rent);
+        _logger.LogInformation("Rent to add: {@Rent}", rent);
 
         await _context.AddAsync(rent);
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(Guid lsz)
     {
-        var rent = await GetAsync(id);
+        var rent = await GetAsync(lsz);
 
         if (rent is null)
         {
-            throw new KeyNotFoundException("Olvaso not found");
+            throw new KeyNotFoundException("Rent not found");
         }
         
         _context.Remove(rent);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<Rent> GetAsync(Guid id)
+    public async Task<Rent> GetAsync(Guid lsz)
     {
-        return await _context.FindAsync<Rent>(id);
+        return await _context.FindAsync<Rent>(lsz);
     }
 
     public async Task<List<Rent>> GetAllAsync()
     {
         _logger.LogInformation("All rent retrieved");
-        return await _context.Rent.ToListAsync();
+        return await _context.Rents.ToListAsync();
     }
 
     public async Task UpdateAsync(Rent newRent)
     {
         var existingRent = await GetAsync(newRent.Osz);
 
-        existingRent.Lsz = newRent.Lsz;
+        existingRent.LSz = newRent.LSz;
         existingRent.RentDate = newRent.RentDate;
         existingRent.VisszahozásDate = newRent.VisszahozásDate;
         

@@ -10,9 +10,9 @@ public class LibraryContext : DbContext
     {
     }
     
-    // public virtual DbSet<Könyv> Könyv { get; set; }
+    public virtual DbSet<Book> Books { get; set; }
     
-    public virtual DbSet<Rent> Rent { get; set; }
+    public virtual DbSet<Rent> Rents { get; set; }
     
     // public virtual DbSet<Olvaso> Olvasok { get; set; }
     //

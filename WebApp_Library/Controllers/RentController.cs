@@ -19,7 +19,7 @@ public class RentController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Rent rent)
     {
-        var existingRent = await _rentService.GetAsync(rent.Lsz);
+        var existingRent = await _rentService.GetAsync(rent.LSz);
 
         if (existingRent is not null)
         {
@@ -68,7 +68,7 @@ public class RentController : ControllerBase
     [HttpPut("{id:guid}")]
     public async Task<IActionResult> Update(Guid id, [FromBody] Rent newRent)
     {
-        if (id != newRent.Lsz)
+        if (id != newRent.LSz)
         {
             return BadRequest();
         }

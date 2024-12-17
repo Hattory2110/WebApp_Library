@@ -11,7 +11,7 @@ public class Rent
     
     
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Lsz { get; set; }
+    public Guid LSz { get; set; }
 
     DateOnly _date = DateOnly.FromDateTime(DateTime.Now);
     

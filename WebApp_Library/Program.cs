@@ -22,10 +22,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LibraryContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("SQLite"));
-    // options.UseLazyLoadingProxies();
+    options.UseLazyLoadingProxies();
 });
 
-builder.Services.AddScoped<IRentService, RentService>();
+builder.Services.AddScoped<IRentService, RentServiceImpl>();
+builder.Services.AddScoped<IBookService, BookServiceImpl>();
 
 var app = builder.Build();
 
