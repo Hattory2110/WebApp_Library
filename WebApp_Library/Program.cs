@@ -1,27 +1,47 @@
-using WebApp_Library.Components;
+using Serilog;
+using WebApp_Library.Contexts;
+using Microsoft.EntityFrameworkCore;
+using WebApp_Library.Services;
+using WebApp_Library.Services.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddSerilog(
+    options =>
+        options
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .WriteTo.File("log.txt"));
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<LibraryContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("SQLite"));
+    // options.UseLazyLoadingProxies();
+});
+
+builder.Services.AddScoped<IRentService, RentService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseCors(o => o.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseHttpsRedirection();
 
-app.UseStaticFiles();
-app.UseAntiforgery();
+app.UseAuthorization();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.MapControllers();
 
-app.Run();
+await app.RunAsync();
