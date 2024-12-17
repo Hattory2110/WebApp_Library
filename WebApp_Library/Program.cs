@@ -27,6 +27,7 @@ builder.Services.AddDbContext<LibraryContext>(options =>
 
 builder.Services.AddScoped<IRentService, RentServiceImpl>();
 builder.Services.AddScoped<IBookService, BookServiceImpl>();
+builder.Services.AddScoped<IReaderService, ReaderServiceImpl>();
 
 var app = builder.Build();
 

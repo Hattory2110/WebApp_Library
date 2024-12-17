@@ -14,7 +14,5 @@ public class LibraryContext : DbContext
     
     public virtual DbSet<Rent> Rents { get; set; }
     
-    // public virtual DbSet<Olvaso> Olvasok { get; set; }
-    //
-    // public virtual DbSet<Person> People { get; set; }
+    public virtual DbSet<Reader> Readers { get; set; }
 }
