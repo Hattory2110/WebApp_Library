@@ -19,12 +19,12 @@ public class RentServiceImpl : IRentService
 
     public async Task DeleteAsync(Guid lsz)
     {
-        await _httpClient.DeleteAsync($"reader/{lsz}");
+        await _httpClient.DeleteAsync($"rent/{lsz}");
     }
 
     public async Task<Rent> GetAsync(Guid lsz)
     {
-        return await _httpClient.GetFromJsonAsync<Rent>($"reader/{lsz}");
+        return await _httpClient.GetFromJsonAsync<Rent>($"rent/{lsz}");
     }
 
     public async Task<List<Rent>> GetAllAsync()
@@ -34,6 +34,6 @@ public class RentServiceImpl : IRentService
 
     public async Task UpdateAsync(Rent newRent)
     {
-        await _httpClient.PutAsJsonAsync<Rent>($"reader/{newRent.LSz}", newRent);
+        await _httpClient.PutAsJsonAsync<Rent>($"rent/{newRent.LSz}", newRent);
     }
 }
