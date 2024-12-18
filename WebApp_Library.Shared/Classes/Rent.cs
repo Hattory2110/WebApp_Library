@@ -6,11 +6,11 @@ namespace WebApp_Library.Shared.Classes;
 public class Rent
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Osz { get; set; }
     
     
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid LSz { get; set; }
 
     DateOnly _date = DateOnly.FromDateTime(DateTime.Now);
@@ -21,5 +21,5 @@ public class Rent
     
     [Required]
     [Range(typeof(DateOnly), "1990-01-01", "2000-12-31")]
-    public DateOnly VisszahozásDate { get; set; }
+    public DateOnly ReturnDate { get; set; }
 }

@@ -1,0 +1,50 @@
+﻿@page "/rent"
+@using WebApp_Library.Shared.Classes
+@using WebApp_Library.UI.Services
+@inject IRentService RentService
+
+@if (_rents is not null)
+{
+    <h3>BookList</h3>
+    <a class="btn btn-primary" href="rent/add">Add rent</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Reader ID</td>
+            <td>Book ID</td>
+            <td>Rent Date</td>
+            <td>Return Date</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var rent in _rents)
+        {
+            <tr>
+                <td>@rent.Osz</td>
+                <td>@rent.LSz</td>
+                <td>@rent.RentDate</td>
+                <td>@rent.ReturnDate</td>
+                <td>
+                    <a href="book/@rent.Osz">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+
+@code {
+
+    private List<Rent> _rents;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _rents = await RentService.GetAllAsync();
+    }
+
+}

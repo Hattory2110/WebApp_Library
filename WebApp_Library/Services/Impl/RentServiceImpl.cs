@@ -53,7 +53,7 @@ public class RentServiceImpl : IRentService
 
         existingRent.LSz = newRent.LSz;
         existingRent.RentDate = newRent.RentDate;
-        existingRent.VisszahozásDate = newRent.VisszahozásDate;
+        existingRent.ReturnDate = newRent.ReturnDate;
         
         await _context.SaveChangesAsync();
     }

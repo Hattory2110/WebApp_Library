@@ -1,0 +1,22 @@
+﻿@page "/rent/add"
+@inject IRentService RentService
+@inject NavigationManager NavigationManager
+
+@using WebApp_Library.Shared.Classes
+@using WebApp_Library.UI.Services
+
+<h3>Add rent</h3>
+
+<RentForm Rent="_rent" OnValidSubmit="AddRentAsync" ButtonText="Add" />
+
+@code {
+
+private Rent _rent = new(){};
+
+private async Task AddRentAsync()
+{
+await RentService.AddAsync(_rent);
+NavigationManager.NavigateTo("rent");
+}
+
+}

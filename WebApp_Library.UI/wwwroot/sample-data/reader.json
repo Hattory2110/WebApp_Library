@@ -1,0 +1,14 @@
+[
+  {
+    "oSz": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "name": "Read Alot",
+    "address": "2500 Város, utca.",
+    "birthdate": "1999-09-09"
+  },
+  {
+    "oSz": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "name": "string",
+    "address": "string",
+    "birthDate": "1999-09-09"
+  }
+]

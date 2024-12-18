@@ -1,0 +1,50 @@
+﻿@page "/book"
+@using WebApp_Library.Shared.Classes
+@using WebApp_Library.UI.Services
+@inject IBookService BookService
+
+@if (_books is not null)
+{
+<h3>BookList</h3>
+<a class="btn btn-primary" href="book/add">Add book</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Writer</td>
+        <td>Publisher</td>
+        <td>Date</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in _books)
+    {
+    <tr>
+        <td>@book.Title</td>
+        <td>@book.Writer</td>
+        <td>@book.Publisher</td>
+        <td>@book.Date</td>
+        <td>
+            <a href="book/@book.LSz">Details</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+
+@code {
+
+    private List<Book> _books;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _books = await BookService.GetAllAsync();
+    }
+
+}

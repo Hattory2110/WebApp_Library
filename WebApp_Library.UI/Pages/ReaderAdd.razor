@@ -1,0 +1,22 @@
+﻿@page "/reader/add"
+@inject IReaderService ReaderService
+@inject NavigationManager NavigationManager
+
+@using WebApp_Library.Shared.Classes
+@using WebApp_Library.UI.Services
+
+<h3>Add reader</h3>
+
+<ReaderForm Reader="_reader" OnValidSubmit="AddReaderAsync" ButtonText="Add" />
+
+@code {
+
+private Reader _reader = new(){};
+
+private async Task AddReaderAsync()
+{
+await ReaderService.AddAsync(_reader);
+NavigationManager.NavigateTo("reader");
+}
+
+}
