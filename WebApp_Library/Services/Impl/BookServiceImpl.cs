@@ -54,7 +54,7 @@ public class BookServiceImpl : IBookService
         existingBook.Title = newBook.Title;
         existingBook.Writer = newBook.Writer;
         existingBook.Publisher = newBook.Publisher;
-        existingBook.Date = newBook.Date;
+        existingBook.ReleaseDate = newBook.ReleaseDate;
         
         await _context.SaveChangesAsync();
         

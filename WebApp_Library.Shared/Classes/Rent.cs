@@ -16,7 +16,7 @@ public class Rent
     DateOnly _date = DateOnly.FromDateTime(DateTime.Now);
     
     [Required]
-    [Range(typeof(DateOnly), "", "2000-12-31")]
+    [Range(typeof(DateOnly), "2024-12-18", "2000-12-31")]
     public DateOnly RentDate { get; set; }
     
     [Required]

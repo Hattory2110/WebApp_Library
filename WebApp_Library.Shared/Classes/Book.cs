@@ -20,5 +20,5 @@ public class Book
 
     [Required]
     [Range(typeof(int), "0", "2024")]
-    public int Date { get; set; }
+    public int ReleaseDate { get; set; }
 }

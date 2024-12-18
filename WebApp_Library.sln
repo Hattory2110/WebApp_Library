@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_Library.Shared", "We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_Library.UI", "WebApp_Library.UI\WebApp_Library.UI.csproj", "{60C46262-46C7-4082-804E-3243513EF607}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_Library.Test", "WebApp_Library.Test\WebApp_Library.Test.csproj", "{6B3DAD85-016B-4E5B-BD64-C6836A93CB7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{60C46262-46C7-4082-804E-3243513EF607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60C46262-46C7-4082-804E-3243513EF607}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60C46262-46C7-4082-804E-3243513EF607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B3DAD85-016B-4E5B-BD64-C6836A93CB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3DAD85-016B-4E5B-BD64-C6836A93CB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3DAD85-016B-4E5B-BD64-C6836A93CB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3DAD85-016B-4E5B-BD64-C6836A93CB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -15,8 +15,8 @@ public class Reader
 
     [Required] 
     public string Address { get; set; }
-
+    
     [Required]
-    [Range(typeof(DateOnly), "1900-01-01", "2000-12-31")]
+    [Range(typeof(DateOnly), "1900-01-01", "2024-12-18")]
     public DateOnly BirthDate { get; set; }
 }
